@@ -1,4 +1,4 @@
-package com.example.passrateprediction;
+package com.example.passrateprediction.Data_Preprocessing;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -82,11 +82,11 @@ public class Data {
         }
 
         data.randomize(new Random(42));
-        if (data.attribute("class") != null){
-            data.setClassIndex(data.attribute("class").index());
-        } else {
-            data.setClassIndex(data.numAttributes()-1);
-        }
+//        if (data.attribute("class") != null){
+//            data.setClassIndex(data.attribute("class").index());
+//        } else {
+//            data.setClassIndex(data.numAttributes()-1);
+//        }
         return data;
     }
 }

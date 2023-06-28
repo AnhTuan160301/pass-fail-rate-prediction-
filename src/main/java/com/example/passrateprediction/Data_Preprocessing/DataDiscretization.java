@@ -1,8 +1,10 @@
-package com.example.passrateprediction;
+package com.example.passrateprediction.Data_Preprocessing;
 
 import weka.core.Instances;
 import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Add;
 import weka.filters.unsupervised.attribute.MathExpression;
+import weka.filters.unsupervised.attribute.NumericToNominal;
 
 public class DataDiscretization {
 
@@ -17,6 +19,10 @@ public class DataDiscretization {
         mathExpression.setOptions(mathExpressOptions);
         mathExpression.setInputFormat(instances);
         toReturn = Filter.useFilter(toReturn, mathExpression);
+
+        NumericToNominal numericToNominal = new NumericToNominal();
+        numericToNominal.setInputFormat(toReturn);
+        toReturn = Filter.useFilter(toReturn, numericToNominal);
 
         return toReturn;
     }
